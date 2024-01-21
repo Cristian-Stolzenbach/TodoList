@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #app {
+        width: 300px;
+        margin: auto;
+      }
+      h2 {
+        text-align: center;
+      }
+      input,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      button {
+        background-color: green;
+        color: white;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h2>Todo List</h2>
+      <input type="text" id="newTask" placeholder="Nueva tarea" />
+      <button onclick="addTask()">Agregar</button>
+      <p>Total: <span id="total">0</span></p>
+      <p>Realizadas: <span id="done">0</span></p>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Tarea</th>
+        </tr>
+        <tbody id="taskList"></tbody>
+      </table>
+    </div>
+
+    <script>
+      let taskId = 0;
+
+      function addTask() {
+        const taskInput = document.getElementById("newTask");
+        const taskList = document.getElementById("taskList");
+        const total = document.getElementById("total");
+        const done = document.getElementById("done");
+
+        if (taskInput.value.trim() !== "") {
+          taskId++;
+          const row = taskList.insertRow();
+          const idCell = row.insertCell(0);
+          const taskCell = row.insertCell(1);
+          idCell.textContent = taskId;
+          taskCell.textContent = taskInput.value;
+          taskInput.value = "";
+          total.textContent = taskId;
+          // Incrementar y actualizar el contador de tareas realizadas si es necesario
+        }
+      }
+
+      // Aquí puedes agregar más funciones de JavaScript si necesitas funcionalidades adicionales
+    </script>
+  </body>
+</html>

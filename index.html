@@ -8,6 +8,20 @@
     
 </head>
 <body>
+    <div id="app">
+        <h2>Todo List</h2>
+        <input type="text" id="newTask" placeholder="Nueva tarea" />
+        <button onclick="addTask()">Agregar</button>
+        <p>Total: <span id="total">0</span></p>
+        <p>Realizadas: <span id="done">0</span></p>
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Tarea</th>
+          </tr>
+          <tbody id="taskList"></tbody>
+        </table>
+      </div>
  
     <script src="/assets/js/index.js"></script>
 </body>
